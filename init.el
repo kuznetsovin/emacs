@@ -32,6 +32,7 @@
 					 flymake-go
                      flymake-rust
 					 flycheck
+					 flycheck-rust
 					 find-file-in-project
 					 exec-path-from-shell
 					 epl
@@ -164,7 +165,10 @@
 (add-hook 'racer-mode-hook #'company-mode)
 (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
 (setq company-tooltip-align-annotations t)
+(setq company-idle-delay 1)
+(setq company-minimum-prefix-length 1)
 (eval-after-load "rust-mode" '(require 'racer))
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (require 'flymake-rust)
 (add-hook 'rust-mode-hook 'flymake-rust-load)
 
