@@ -304,6 +304,7 @@
 
 ;; Line number
 (global-linum-mode t)
+(electric-pair-mode 1)
 
 ;; Themes
 (global-hl-line-mode t)
