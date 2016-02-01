@@ -30,7 +30,7 @@
 					 go-mode
 					 ggtags
 					 flymake-go
-                     flymake-rust
+           flymake-rust
 					 flycheck
 					 flycheck-rust
 					 find-file-in-project
@@ -322,7 +322,7 @@
  )
 (put 'upcase-region 'disabled nil)
 
-# jekyll org-mode for blog
+;; jekyll org-mode for blog
 (setq org-publish-project-alist '(
   ("org-blog"
           ;; Path to your org files.
@@ -330,7 +330,7 @@
           :base-extension "org"
 
           ;; Path to your Jekyll project.
-          :publishing-directory "~/kuznetsovin.github.io/"
+          :publishing-directory "~/Projects/kuznetsovin.github.io/_posts/"
           :recursive t
           :publishing-function org-html-publish-to-html
           :headline-levels 4
@@ -341,10 +341,10 @@
     )
 
     ("org-static-blog"
-          :base-directory "~/kuznetsovin.github.io/_org/"
+          :base-directory "~/Projects/kuznetsovin.github.io/_org/"
           :base-extension any
           :exclude ".*\.org"
-          :publishing-directory "~/kuznetsovin.github.io/"
+          :publishing-directory "~/Projects/kuznetsovin.github.io/_posts/"
           :recursive t
           :publishing-function org-publish-attachment)
 
