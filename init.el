@@ -59,6 +59,8 @@
 (setenv "LANG" "ru_RU.UTF-8")
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 (setq mouse-wheel-progressive-speed nil)
+(setq make-backup-files nil)
+(delete-selection-mode 1)
 
 (package-initialize)
 
