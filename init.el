@@ -321,3 +321,33 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+
+# jekyll org-mode for blog
+(setq org-publish-project-alist '(
+  ("org-blog"
+          ;; Path to your org files.
+          :base-directory "~/Projects/kuznetsovin.github.io/_org/"
+          :base-extension "org"
+
+          ;; Path to your Jekyll project.
+          :publishing-directory "~/kuznetsovin.github.io/"
+          :recursive t
+          :publishing-function org-html-publish-to-html
+          :headline-levels 4
+          :html-extension "html"
+          :body-only t ;; Only export section between <body> </body>
+          :section-numbers nil
+          :with-toc nil
+    )
+
+    ("org-static-blog"
+          :base-directory "~/kuznetsovin.github.io/_org/"
+          :base-extension any
+          :exclude ".*\.org"
+          :publishing-directory "~/kuznetsovin.github.io/"
+          :recursive t
+          :publishing-function org-publish-attachment)
+
+    ("blog" :components ("org-blog" "org-static-blog"))
+
+))
