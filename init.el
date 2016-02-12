@@ -29,8 +29,9 @@
 					 google-translate
 					 go-mode
 					 ggtags
+					 graphviz-dot-mode
 					 flymake-go
-           flymake-rust
+					 flymake-rust
 					 flycheck
 					 flycheck-rust
 					 find-file-in-project
@@ -44,6 +45,7 @@
 					 deferred
 					 dash
 					 ctable
+					 cl-generic
 					 concurrent
 					 company
 					 cargo
