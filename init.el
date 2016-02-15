@@ -277,7 +277,8 @@
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(show-paren-mode t)
  '(tab-width 4)
- '(gdb-many-windows t))
+ '(gdb-many-windows t)
+ '(setq tramp-default-method "scp"))
 
 ;; Python
 (require 'ein)
