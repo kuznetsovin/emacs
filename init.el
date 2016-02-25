@@ -144,7 +144,7 @@
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 (setq exec-path (cons "/usr/local/opt/go/libexec/bin" exec-path))
-(add-to-list 'exec-path "/Users/igorkuznetsov/.go/bin")
+(add-to-list 'exec-path "~/.go/bin")
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
@@ -161,7 +161,7 @@
 ;;rust
 (autoload 'rust-mode "rust-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-(setq racer-cmd "/Users/igorkuznetsov/.cargo/bin/racer")
+(setq racer-cmd "~/.cargo/bin/racer")
 (setq racer-rust-src-path "/usr/local/src/rust/src")
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'rust-mode-hook 'cargo-minor-mode)
