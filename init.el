@@ -52,6 +52,7 @@
 					 auto-complete
 					 async
 					 ahg
+					 qml-mode
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -114,6 +115,10 @@
 (global-set-key "\C-cT" 'google-translate-query-translate)
 (setq google-translate-default-target-language "ru")
 (setq google-translate-default-source-language "en")
+
+;;QML
+(autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
+(add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
 
 ;;PO localize file
 (load-file "~/.emacs.d/po-mode.el")
