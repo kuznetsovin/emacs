@@ -116,10 +116,6 @@
 (setq google-translate-default-target-language "ru")
 (setq google-translate-default-source-language "en")
 
-;;QML
-(autoload 'qml-mode "qml-mode" "Editing Qt Declarative." t)
-(add-to-list 'auto-mode-alist '("\\.qml$" . qml-mode))
-
 ;;PO localize file
 (load-file "~/.emacs.d/po-mode.el")
 (setq auto-mode-alist
@@ -148,7 +144,8 @@
 (load-file "~/.emacs.d/go-autocomplete.el")
 (require 'go-autocomplete)
 (require 'auto-complete-config)
-(setq exec-path (cons "/usr/local/opt/go/libexec/bin" exec-path))
+(ac-config-default)
+(setq exec-path (cons "/usr/local/go/bin" exec-path))
 (add-to-list 'exec-path "~/.go/bin")
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
@@ -258,7 +255,21 @@
 	   (forward-line -1))
 	 )
   )
-)
+  )
+(defun move-text-down (arg)
+   "Move region (transient-mark-mode active) or current line
+  arg lines down."
+   (interactive "*p")
+   (move-text-internal arg))
+
+(defun move-text-up (arg)
+   "Move region (transient-mark-mode active) or current line
+  arg lines up."
+   (interactive "*p")
+   (move-text-internal (- arg)))
+
+(global-set-key [M-S-up] 'move-text-up)
+(global-set-key [M-S-down] 'move-text-down)
 
 ;; Navigation
 (require 'ido)
@@ -359,3 +370,4 @@
     ("blog" :components ("org-blog" "org-static-blog"))
 
 ))
+(put 'set-goal-column 'disabled nil)
