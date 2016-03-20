@@ -178,15 +178,6 @@
 (require 'flymake-rust)
 (add-hook 'rust-mode-hook 'flymake-rust-load)
 
-;;ggtags
-;; (require 'ggtags)
-;; (add-hook 'c-mode-common-hook
-;;           (lambda ()
-;; 			(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-;; 			  (ggtags-mode 1)
-;; 			  (idle-highlight-mode t)
-;; 			  )))
-
 ;;Projects
 (require 'neotree)
 
@@ -294,7 +285,8 @@
  '(show-paren-mode t)
  '(tab-width 4)
  '(gdb-many-windows t)
- '(setq tramp-default-method "scp"))
+ '(setq tramp-default-method "scp")
+ '(org-export-backends (quote (ascii html icalendar latex md))))
 
 ;; Python
 (require 'ein)
