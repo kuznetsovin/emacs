@@ -52,7 +52,7 @@
 					 auto-complete
 					 async
 					 ahg
-					 qml-mode
+					 lua-mode
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -179,13 +179,13 @@
 (add-hook 'rust-mode-hook 'flymake-rust-load)
 
 ;;ggtags
-(require 'ggtags)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-			(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
-			  (ggtags-mode 1)
-			  (idle-highlight-mode t)
-			  )))
+;; (require 'ggtags)
+;; (add-hook 'c-mode-common-hook
+;;           (lambda ()
+;; 			(when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+;; 			  (ggtags-mode 1)
+;; 			  (idle-highlight-mode t)
+;; 			  )))
 
 ;;Projects
 (require 'neotree)
