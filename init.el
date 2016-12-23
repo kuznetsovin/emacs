@@ -54,6 +54,9 @@
 					 ahg
 					 lua-mode
 					 dockerfile-mode
+					 json-reformat
+					 yafolding
+					 cyberpunk-theme
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -327,8 +330,8 @@
 
 ;; Themes
 (global-hl-line-mode t)
-(set-face-background 'hl-line "#CCFFFF")
 (set-default-font "Hack-12")
+(load-theme 'cyberpunk t)
 
 
 (custom-set-faces
