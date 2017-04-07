@@ -9,17 +9,16 @@
 					 smex
 					 seq
 					 s
-					 rust-mode
+					 ;; rust-mode
 					 restclient
 					 request
-					 racer
+					 ;; racer
 					 pyvenv
 					 python-environment
 					 py-autopep8
 					 popup
 					 pkg-info
 					 pandoc-mode
-					 neotree
 					 multiple-cursors
 					 markdown-mode
 					 magit
@@ -31,24 +30,22 @@
 					 ggtags
 					 graphviz-dot-mode
 					 flymake-go
-					 flymake-rust
+					 ;; flymake-rust
 					 flycheck
-					 flycheck-rust
+					 ;; flycheck-rust
 					 find-file-in-project
 					 exec-path-from-shell
 					 epl
 					 epc
 					 elpy
 					 ein
-					 django-snippets
-					 django-mode
 					 deferred
 					 dash
 					 ctable
 					 cl-generic
 					 concurrent
 					 company
-					 cargo
+					 ;; cargo
 					 auto-complete
 					 async
 					 ahg
@@ -56,7 +53,7 @@
 					 dockerfile-mode
 					 json-reformat
 					 yafolding
-					 cyberpunk-theme
+					 abyss-theme
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -124,14 +121,8 @@
 (setq google-translate-default-target-language "ru")
 (setq google-translate-default-source-language "en")
 
-;;PO localize file
-(load-file "~/.emacs.d/po-mode.el")
-(setq auto-mode-alist
-      (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
-(autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
-
 ;; SQL settings
-(setq sql-postgres-program "/Applications/Postgres.app/Contents/Versions/9.4/bin/psql")
+(setq sql-postgres-program "/Applications/Postgres.app/Contents/Versions/9.6/bin/psql")
 
 ;; smex (ido в M-x)
 (smex-initialize)
@@ -148,7 +139,7 @@
 ;; go
 (require 'go-mode)
 (eval-after-load "go-mode"
-  '(require 'flymake-go))
+'(require 'flymake-go))
 (load-file "~/.emacs.d/go-autocomplete.el")
 (require 'go-autocomplete)
 (require 'auto-complete-config)
@@ -157,37 +148,34 @@
 (add-to-list 'exec-path "~/.go/bin")
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
-  (add-hook 'before-save-hook 'gofmt-before-save)
+ (add-hook 'before-save-hook 'gofmt-before-save)
   ; Customize compile command to run go build
-  (if (not (string-match "go" compile-command))
-      (set (make-local-variable 'compile-command) 
-           "go build -gcflags \"-N -l\""))
+ (if (not (string-match "go" compile-command))
+     (set (make-local-variable 'compile-command) 
+          "go build -gcflags \"-N -l\""))
   ; Godef jump key binding
-  (local-set-key (kbd "M-.") 'godef-jump))
+ (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 (add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
 (require 'golint)
 
 ;;rust
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-(setq racer-cmd "~/.cargo/bin/racer")
-(setq racer-rust-src-path "/usr/local/src/rust/src")
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
-(setq company-tooltip-align-annotations t)
-(setq company-idle-delay 1)
-(setq company-minimum-prefix-length 1)
-(eval-after-load "rust-mode" '(require 'racer))
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-(require 'flymake-rust)
-(add-hook 'rust-mode-hook 'flymake-rust-load)
-
-;;Projects
-(require 'neotree)
+;; (autoload 'rust-mode "rust-mode" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+;; (setq racer-cmd "~/.cargo/bin/racer")
+;; (setq racer-rust-src-path "/usr/local/src/rust/src")
+;; (add-hook 'rust-mode-hook #'racer-mode)
+;; (add-hook 'rust-mode-hook 'cargo-minor-mode)
+;; (add-hook 'racer-mode-hook #'eldoc-mode)
+;; (add-hook 'racer-mode-hook #'company-mode)
+;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+;; (setq company-tooltip-align-annotations t)
+;; (setq company-idle-delay 1)
+;; (setq company-minimum-prefix-length 1)
+;; (eval-after-load "rust-mode" '(require 'racer))
+;; (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+;; (require 'flymake-rust)
+;; (add-hook 'rust-mode-hook 'flymake-rust-load)
 
 ;;DCVS
 (require 'ahg)
@@ -287,23 +275,20 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ecb-options-version "2.40")
+ '(gdb-many-windows t)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode nil)
+ '(org-export-backends (quote (ascii html icalendar latex md)))
+ '(package-selected-packages
+   (quote
+	(abyss-theme yaml-mode yafolding swiper sphinx-doc smex restclient py-autopep8 pandoc-mode multiple-cursors markdown-mode magit lua-mode json-reformat jedi idle-highlight-mode graphviz-dot-mode google-translate go-mode ggtags flymake-go exec-path-from-shell elpy ein dockerfile-mode cyberpunk-theme ahg)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
+ '(setq tramp-default-method t)
  '(show-paren-mode t)
- '(tab-width 4)
- '(gdb-many-windows t)
- '(setq tramp-default-method "scp")
- '(org-export-backends (quote (ascii html icalendar latex md))))
+ '(tab-width 4))
 
 ;; Python
 (require 'ein)
-(require 'django-html-mode)
-(require 'django-mode)
-(yas/load-directory "~/.emacs.d/elpa/django-snippets-20131229.811")
-(add-to-list 'auto-mode-alist '("\\.djhtml$" . django-html-mode))
-
-
 (add-hook 'python-mode-hook (lambda ()
                                   (require 'sphinx-doc)
                                   (sphinx-doc-mode t)
@@ -331,7 +316,7 @@
 ;; Themes
 (global-hl-line-mode t)
 (set-default-font "Hack-12")
-(load-theme 'cyberpunk t)
+(load-theme 'abyss t)
 
 
 (custom-set-faces
