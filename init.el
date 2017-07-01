@@ -142,6 +142,12 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; c
+(defun my-flycheck-c-setup ()
+  (setq flycheck-clang-language-standard "gnu99"))
+
+(add-hook 'c-mode-hook #'my-flycheck-c-setup)
+
 ;; go
 (require 'go-mode)
 (eval-after-load "go-mode"
