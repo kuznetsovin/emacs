@@ -9,10 +9,10 @@
 					 smex
 					 seq
 					 s
-					 ;; rust-mode
+					 rust-mode
 					 restclient
 					 request
-					 ;; racer
+					 racer
 					 pyvenv
 					 python-environment
 					 py-autopep8
@@ -30,9 +30,9 @@
 					 ggtags
 					 graphviz-dot-mode
 					 flymake-go
-					 ;; flymake-rust
+					 flymake-rust
 					 flycheck
-					 ;; flycheck-rust
+					 flycheck-rust
 					 find-file-in-project
 					 exec-path-from-shell
 					 epl
@@ -45,7 +45,7 @@
 					 cl-generic
 					 concurrent
 					 company
-					 ;; cargo
+					 cargo
 					 auto-complete
 					 async
 					 ahg
@@ -121,6 +121,12 @@
 (setq google-translate-default-target-language "ru")
 (setq google-translate-default-source-language "en")
 
+;;resizing window
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+    (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+    (global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
 ;; SQL settings
 (setq sql-postgres-program "/Applications/Postgres.app/Contents/Versions/9.6/bin/psql")
 
@@ -160,22 +166,22 @@
 (require 'golint)
 
 ;;rust
-;; (autoload 'rust-mode "rust-mode" nil t)
-;; (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-;; (setq racer-cmd "~/.cargo/bin/racer")
-;; (setq racer-rust-src-path "/usr/local/src/rust/src")
-;; (add-hook 'rust-mode-hook #'racer-mode)
-;; (add-hook 'rust-mode-hook 'cargo-minor-mode)
-;; (add-hook 'racer-mode-hook #'eldoc-mode)
-;; (add-hook 'racer-mode-hook #'company-mode)
-;; (global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
-;; (setq company-tooltip-align-annotations t)
-;; (setq company-idle-delay 1)
-;; (setq company-minimum-prefix-length 1)
-;; (eval-after-load "rust-mode" '(require 'racer))
-;; (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-;; (require 'flymake-rust)
-;; (add-hook 'rust-mode-hook 'flymake-rust-load)
+(autoload 'rust-mode "rust-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
+(setq racer-cmd "~/.cargo/bin/racer")
+(setq racer-rust-src-path "/usr/local/src/rust/src")
+(add-hook 'rust-mode-hook #'racer-mode)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(add-hook 'racer-mode-hook #'eldoc-mode)
+(add-hook 'racer-mode-hook #'company-mode)
+(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
+(setq company-tooltip-align-annotations t)
+(setq company-idle-delay 1)
+(setq company-minimum-prefix-length 1)
+(eval-after-load "rust-mode" '(require 'racer))
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(require 'flymake-rust)
+(add-hook 'rust-mode-hook 'flymake-rust-load)
 
 ;;DCVS
 (require 'ahg)

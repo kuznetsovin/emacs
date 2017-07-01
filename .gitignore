@@ -3,3 +3,11 @@
 
 # Packaging
 .cask
+
+ac-comphist.dat
+auto-save-list
+elpa
+ido.last
+network-security.data
+smex-items
+snippets
