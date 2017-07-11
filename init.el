@@ -142,6 +142,9 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; js
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
 ;; c
 (defun my-flycheck-c-setup ()
   (setq flycheck-clang-language-standard "gnu99"))
