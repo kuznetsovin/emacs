@@ -298,11 +298,10 @@
  '(ecb-options-version "2.40")
  '(gdb-many-windows t)
  '(markdown-command "/usr/local/bin/pandoc")
- '(menu-bar-mode nil)
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(package-selected-packages
    (quote
-	(abyss-theme yaml-mode yafolding swiper sphinx-doc smex restclient py-autopep8 pandoc-mode multiple-cursors markdown-mode magit lua-mode json-reformat jedi idle-highlight-mode graphviz-dot-mode google-translate go-mode ggtags flymake-go exec-path-from-shell elpy ein dockerfile-mode cyberpunk-theme ahg)))
+	(yaml-mode yafolding swiper sphinx-doc smex restclient py-autopep8 pandoc-mode multiple-cursors markdown-mode magit lua-mode json-reformat jedi idle-highlight-mode graphviz-dot-mode google-translate go-mode ggtags flymake-go exec-path-from-shell elpy ein dockerfile-mode cyberpunk-theme ahg)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(setq tramp-default-method t)
  '(show-paren-mode t)
