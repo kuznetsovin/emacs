@@ -53,7 +53,7 @@
 					 dockerfile-mode
 					 json-reformat
 					 yafolding
-					 abyss-theme
+					 idea-darkula-theme
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -337,12 +337,14 @@
 ;; Themes
 (global-hl-line-mode t)
 (set-default-font "Hack-12")
-(load-theme 'abyss t)
+(load-theme 'idea-darkula t)
 
 ;;spell checker
 (setq ispell-program-name "aspell")
 ;; Please note ispell-extra-args contains ACTUAL parameters passed to aspell
 (setq ispell-extra-args '("--sug-mode=ultra" "--lang=ru"))
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode 1))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
