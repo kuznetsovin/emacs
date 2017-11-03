@@ -146,6 +146,12 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; c
+(require 'ggtags)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+            (when (derived-mode-p 'c-mode 'c++-mode 'java-mode 'asm-mode)
+              (ggtags-mode 1))))
+
 (defun my-flycheck-c-setup ()
   (setq flycheck-clang-language-standard "gnu99"))
 
@@ -333,6 +339,10 @@
 (set-default-font "Hack-12")
 (load-theme 'abyss t)
 
+;;spell checker
+(setq ispell-program-name "aspell")
+;; Please note ispell-extra-args contains ACTUAL parameters passed to aspell
+(setq ispell-extra-args '("--sug-mode=ultra" "--lang=ru"))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
