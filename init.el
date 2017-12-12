@@ -289,6 +289,11 @@
 
 ;;Markdown
 (add-to-list 'auto-mode-alist '("\\.md$" . markdown-mode))
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+
+;;ReStructedText
+(add-to-list 'auto-mode-alist '("\\.rst$" . rst-mode))
+(add-hook 'rst-mode-hook 'pandoc-mode)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -352,3 +357,5 @@
  ;; If there is more than one, they won't work right.
  )
 (put 'upcase-region 'disabled nil)
+(put 'downcase-region 'disabled nil)
+(setq tramp-default-method "ssh")
