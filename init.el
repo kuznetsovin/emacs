@@ -54,6 +54,8 @@
 					 json-reformat
 					 yafolding
 					 idea-darkula-theme
+					 ansible
+					 web-mode
 					 ))
 
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -306,7 +308,7 @@
  '(org-export-backends (quote (ascii html icalendar latex md)))
  '(package-selected-packages
    (quote
-	(yaml-mode yafolding swiper sphinx-doc smex restclient py-autopep8 pandoc-mode multiple-cursors markdown-mode magit lua-mode json-reformat jedi idle-highlight-mode graphviz-dot-mode google-translate go-mode ggtags flymake-go exec-path-from-shell elpy ein dockerfile-mode cyberpunk-theme ahg)))
+	(ansible yaml-mode yafolding swiper sphinx-doc smex restclient py-autopep8 pandoc-mode multiple-cursors markdown-mode magit lua-mode json-reformat jedi idle-highlight-mode graphviz-dot-mode google-translate go-mode ggtags flymake-go exec-path-from-shell elpy ein dockerfile-mode cyberpunk-theme ahg)))
  '(safe-local-variable-values (quote ((encoding . utf-8))))
  '(setq tramp-default-method t)
  '(show-paren-mode t)
@@ -338,6 +340,10 @@
 (electric-pair-mode 1)
 (column-number-mode t)
 
+;; Multi-web
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;; Themes
 (global-hl-line-mode t)
 (set-default-font "Hack-12")
@@ -359,3 +365,5 @@
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (setq tramp-default-method "ssh")
+(setq org-src-fontify-natively t)
+(add-hook 'org-mode-hook #'toggle-word-wrap)
