@@ -1,7 +1,7 @@
 (require 'package)
 
 (setq package-list '(
-					 yasnippet
+s					 yasnippet
 					 yaml-mode
 					 websocket
 					 swiper
@@ -113,7 +113,7 @@
                 (comment-region (line-beginning-position) (line-end-position)))
             (forward-line 1)
             (forward-char pos)))))
-(global-set-key "\C-c\C-k" 'duplicate-line-or-region)
+(global-set-key (kbd "s-d") 'duplicate-line-or-region)
 
 ;;Translate
 (require 'google-translate)
@@ -262,8 +262,8 @@
    (interactive "*p")
    (move-text-internal (- arg)))
 
-(global-set-key [M-S-up] 'move-text-up)
-(global-set-key [M-S-down] 'move-text-down)
+(global-set-key [s-S-up] 'move-text-up)
+(global-set-key [s-S-down] 'move-text-down)
 
 ;; Navigation
 (require 'ido)
