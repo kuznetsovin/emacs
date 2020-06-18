@@ -182,6 +182,9 @@
 (add-to-list 'load-path (concat (getenv "GOPATH")  "/src/golang.org/x/lint/misc/emacs"))
 (require 'golint)
 
+;;rust
+(require 'rust-mode)
+
 ;;DCVS
 (require 'magit)
 
