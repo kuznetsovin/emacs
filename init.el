@@ -179,29 +179,10 @@
   ; Godef jump key binding
  (local-set-key (kbd "M-.") 'godef-jump))
 (add-hook 'go-mode-hook 'my-go-mode-hook)
-(add-to-list 'load-path (concat (getenv "GOPATH")  "/src/github.com/golang/lint/misc/emacs"))
+(add-to-list 'load-path (concat (getenv "GOPATH")  "/src/golang.org/x/lint/misc/emacs"))
 (require 'golint)
 
-;;rust
-(autoload 'rust-mode "rust-mode" nil t)
-(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-(setq racer-cmd "~/.cargo/bin/racer")
-(setq racer-rust-src-path "/usr/local/src/rust/src")
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
-(add-hook 'racer-mode-hook #'company-mode)
-(global-set-key (kbd "TAB") #'company-indent-or-complete-common) ;
-(setq company-tooltip-align-annotations t)
-(setq company-idle-delay 1)
-(setq company-minimum-prefix-length 1)
-(eval-after-load "rust-mode" '(require 'racer))
-(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-(require 'flymake-rust)
-(add-hook 'rust-mode-hook 'flymake-rust-load)
-
 ;;DCVS
-(require 'ahg)
 (require 'magit)
 
 ;; XML
@@ -322,7 +303,8 @@
 								  (idle-highlight-mode t)
 								  ))
 (elpy-enable)
-(elpy-use-ipython)
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "-i --simple-prompt")
 
 (setq elpy-rpc-backend "rope")
 
@@ -346,7 +328,7 @@
 
 ;; Themes
 (global-hl-line-mode t)
-(set-default-font "Hack-12")
+(set-default-font "JetBrains Mono")
 (load-theme 'idea-darkula t)
 
 ;;spell checker
